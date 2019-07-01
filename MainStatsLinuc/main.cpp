@@ -1,8 +1,5 @@
 #include <cstdio>
 #include "Stats.h"
-#include <thread>
-#include <pthread.h>
-#include <chrono>
 int main()
 {
   logger = new ELALogger();
