@@ -8,8 +8,8 @@ int main()
   logger->SetLogFileName("output.txt");
   std::string path = "/opt/surya/EventLog/";
   std::string name = "java";
-  //std::thread t1(GetDiskStat, path, name);
-  //t1.join();
-  GetDiskStat(path, name);
+  //std::string path = "";
+  //std::string name = "gnome-system-mo";
+  GetCPUStats(path, name);
   return 0;
 }

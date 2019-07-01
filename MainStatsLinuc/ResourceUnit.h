@@ -58,3 +58,25 @@ public:
     fileData.clear();
   }
 };
+
+class CPUStat : public ResourceUnit
+{
+public:
+  CPUStat(std::string &pidAlias, std::string filePathAlias) : ResourceUnit(pidAlias, filePathAlias)
+  {
+
+  }
+  void resolveData(std::vector<double> &result)
+  {
+    int n = 13;
+    std::string firstData = fileData.front();
+    while (n-- != 0)
+    {
+      firstData.replace(0, firstData.find(" ") + 1, "");
+    }
+    result.at(0) = atoi(firstData.c_str());
+    firstData.replace(0, firstData.find(" ") + 1, "");
+    result.at(1) = atoi(firstData.c_str());
+    fileData.clear();
+  }
+};

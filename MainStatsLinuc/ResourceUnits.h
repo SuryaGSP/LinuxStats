@@ -50,3 +50,18 @@ public:
     unit->resolveData(result);
   }
 };
+
+class CPUStats : public ResourceUnits
+{
+public:
+  CPUStats(std::string &fileNameAlias) : ResourceUnits(fileNameAlias)
+  {
+
+  }
+  void GetStats(std::string &pid, std::vector<double> &result)
+  {
+    ResourceUnit* unit = new CPUStat(pid, fileName);
+    unit->CaptureData();
+    unit->resolveData(result);
+  }
+};

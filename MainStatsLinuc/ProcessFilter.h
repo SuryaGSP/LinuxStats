@@ -32,7 +32,7 @@ class ProcessFilter
       int len;
       if ((len = readlink(fileName.c_str(), pathName, 100)) != -1)
       {
-        if (std::string(pathName).find("/opt/surya/EventLog") != std::string::npos)
+        if (std::string(pathName).find(processPath) != std::string::npos)
         {
           thatinstances.push_back(std::to_string(instance));
         }
@@ -44,6 +44,10 @@ class ProcessFilter
     std::vector<int> thispids;
     for (int pid : thatpids)
     {
+      if (pid == 24462)
+      {
+        std::cout << "";
+      }
       std::string fileName = "/proc/" + std::to_string(pid) + "/status";
       File* file = new File(fileName);
       std::string processName;
